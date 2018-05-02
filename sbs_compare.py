@@ -591,10 +591,12 @@ class SbsCompareCommand(sublime_plugin.TextCommand):
             view1.sel().clear()
             view1.sel().add(sublime.Region(origin))
             view1.show(origin)
-
+            view1.run_command('toggle_setting',{'setting': 'line_numbers'})
+            
             view2.sel().clear()
             view2.sel().add(sublime.Region(origin))
             view2.show(origin)
+            view2.run_command('toggle_setting',{'setting': 'line_numbers'})
 
             # focus first view
             new_window.focus_view(view1)
